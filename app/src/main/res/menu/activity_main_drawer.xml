@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_create"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Create New Project" />
+        <item
+            android:id="@+id/nav_edit"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Edit Projects" />
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Search Project" />
+        <item
+            android:id="@+id/nav_delete"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Delete Project" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_help"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Help" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_menu_send"
+                android:title="About" />
+        </menu>
+    </item>
+
+</menu>
