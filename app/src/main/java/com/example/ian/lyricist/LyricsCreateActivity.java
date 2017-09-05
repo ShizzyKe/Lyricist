@@ -1,5 +1,6 @@
 package com.example.ian.lyricist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -25,18 +26,30 @@ public class LyricsCreateActivity extends AppCompatActivity {
     public List<Lyric> lyrics;
     public PrefUtils prefUtils;
     public Gson gson;
+    String editTitle;
+    String editDescription;
+    int position;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lyrics_create);
-
         prefUtils = new PrefUtils(this);
         lyrics = new ArrayList<>();
         title = (EditText) findViewById(R.id.title);
+
         description = (EditText) findViewById(R.id.description);
         save = (Button) findViewById(R.id.save);
+
+        if(getIntent().hasExtra("title1")){
+            editTitle = getIntent().getStringExtra("title1");
+            editDescription = getIntent().getStringExtra("description1");
+            position = getIntent().getIntExtra("position",0);
+            title.setText(editTitle, TextView.BufferType.EDITABLE);
+            description.setText(editDescription, TextView.BufferType.EDITABLE);
+        }
+
 
         String lyricsString = prefUtils.getLyrics();
         gson = new Gson();
@@ -44,15 +57,24 @@ public class LyricsCreateActivity extends AppCompatActivity {
              lyrics = gson.fromJson(lyricsString, new TypeToken<List<Lyric>>(){}.getType());
          }
 
-        Toast.makeText(this, String.valueOf(lyrics.size()), Toast.LENGTH_SHORT).show();
+
+
 
         save.setOnClickListener(new Button.OnClickListener (){public void onClick(View v)
         {
           Lyric lyric = new Lyric(title.getText().toString().trim(),description.getText().toString().trim());
-          lyrics.add(lyric);
+            if(getIntent().hasExtra("title1")){
+                lyrics.set(position, lyric);
+            } else {
+                lyrics.add(lyric);
+            }
+
 
             String stringLyrics = gson.toJson(lyrics);
             prefUtils.setLyrics(stringLyrics);
+            Toast.makeText(getApplicationContext(),"Project added successfully", Toast.LENGTH_SHORT).show();
+            Intent myIntent = new Intent(LyricsCreateActivity.this, MainActivity.class);
+            startActivity(myIntent);
         }
         });
 

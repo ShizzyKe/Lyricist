@@ -20,10 +20,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LyricsCreateActivity">
+            android:name=".LyricsCreateActivity"
+            android:parentActivityName=".MainActivity">
         </activity>
         <activity
-            android:name=".LyricsListActivity">
+            android:name=".LyricsListActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:parentActivityName=".MainActivity">
         </activity>
 
 

@@ -96,7 +96,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(myIntent);
         }
         else if (id == R.id.nav_edit) {
-
+            Intent myIntent = new Intent(MainActivity.this, LyricsListActivity.class);
+            startActivity(myIntent);
         }
         else if (id == R.id.nav_search) {
 
@@ -107,8 +108,8 @@ public class MainActivity extends AppCompatActivity
 
 
         else if (id == R.id.nav_about) {
-        Intent otherIntent = new Intent(MainActivity.this, LyricsListActivity.class);
-            startActivity(otherIntent);
+            Intent myIntent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(myIntent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

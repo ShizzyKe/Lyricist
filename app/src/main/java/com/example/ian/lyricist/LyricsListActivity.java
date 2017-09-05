@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.TextView;
 
-import com.example.ian.lyricist.R;
 import com.example.ian.lyricist.model.Adapter;
 import com.example.ian.lyricist.model.Lyric;
 import com.example.ian.lyricist.model.PrefUtils;
@@ -28,23 +30,31 @@ public class LyricsListActivity extends AppCompatActivity {
     public RecyclerView recyclerView;
     public Adapter adapter;
     public List<Lyric> lyrics;
+    public TextView text2;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lyrics_activity);
+        setContentView(R.layout.activity_lyrics_list);
 
         prefUtils = new PrefUtils(this);
         lyrics = new ArrayList<>();
+        text2 = (TextView) findViewById(R.id.text2);
         String lyricsString = prefUtils.getLyrics();
-        Log.e("lyrics", lyricsString);
-        gson = new Gson();
-        lyrics = gson.fromJson(lyricsString, new TypeToken<List<Lyric>>(){}.getType());
-        adapter = new Adapter(this);
-        recyclerView = (RecyclerView)findViewById(R.id.recycler);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager( new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
-        adapter.setItems(lyrics);
+
+        if (lyricsString == null) {
+            text2.setVisibility(View.VISIBLE);
+        } else {
+            gson = new Gson();
+            lyrics = gson.fromJson(lyricsString, new TypeToken<List<Lyric>>() {
+            }.getType());
+            adapter = new Adapter(this);
+            recyclerView = (RecyclerView) findViewById(R.id.recycler);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setAdapter(adapter);
+            adapter.setItems(lyrics);
+
+        }
     }
 }
