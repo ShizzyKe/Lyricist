@@ -1,4 +1,4 @@
-package com.example.ian.lyricist.Model;
+package com.example.ian.lyricist.model;
 
 /**
  * Created by Ian on 9/4/2017.

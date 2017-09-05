@@ -3,15 +3,14 @@ package com.example.ian.lyricist;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.GestureDetector;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ian.lyricist.Model.Lyric;
-import com.example.ian.lyricist.Model.PrefUtils;
+import com.example.ian.lyricist.model.Lyric;
+import com.example.ian.lyricist.model.PrefUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -35,8 +34,8 @@ public class LyricsCreateActivity extends AppCompatActivity {
 
         prefUtils = new PrefUtils(this);
         lyrics = new ArrayList<>();
-        title = (EditText)findViewById(R.id.title);
-        description = (EditText)findViewById(R.id.description);
+        title = (EditText) findViewById(R.id.title);
+        description = (EditText) findViewById(R.id.description);
         save = (Button) findViewById(R.id.save);
 
         String lyricsString = prefUtils.getLyrics();

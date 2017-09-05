@@ -3,6 +3,7 @@ package com.example.ian.lyricist;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,8 +14,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.ian.lyricist.model.Lyric;
+
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    public RecyclerView recyclerView;
+    public RecyclerView.Adapter adapter;
+    public List<Lyric> lyrics;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +31,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +107,8 @@ public class MainActivity extends AppCompatActivity
 
 
         else if (id == R.id.nav_about) {
-
+        Intent otherIntent = new Intent(MainActivity.this, LyricsListActivity.class);
+            startActivity(otherIntent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
