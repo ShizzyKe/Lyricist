@@ -66,6 +66,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         return items.size();
     }
 
+    public void setFilter (ArrayList<Lyric> newlist)
+    {
+        items = new ArrayList<>();
+        items.addAll(newlist);
+        notifyDataSetChanged();
+
+    }
+
+
     public class ViewHolder extends RecyclerView.ViewHolder
     {   public TextView title1;
         public TextView description1;

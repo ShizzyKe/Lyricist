@@ -22,4 +22,18 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Begin your lyrical journey.CLick on the plus sign below."
+        android:visibility="gone"
+        android:textAlignment="center"
+        android:gravity="center_vertical"/>
+
+
 </android.support.v4.widget.DrawerLayout>

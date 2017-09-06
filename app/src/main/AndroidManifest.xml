@@ -18,6 +18,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable"
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".LyricsCreateActivity"
@@ -31,6 +34,9 @@
             android:name=".AboutActivity"
             android:parentActivityName=".MainActivity">
         </activity>
+        <meta-data android:name="android.app.searchable"
+            android:resource="@xml/searchable"
+            android:value=".activities.SearchResultActivity" />
 
 
     </application>
