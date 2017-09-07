@@ -19,15 +19,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ian.lyricist.model.Adapter;
 import com.example.ian.lyricist.model.Lyric;
 import com.example.ian.lyricist.model.PrefUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         text2 = (TextView) findViewById(R.id.text2);
         String lyricsString = prefUtils.getLyrics();
 
-        if (lyricsString == null) {
+        if (lyricsString == null || lyrics.size() == 0) {
             text2.setVisibility(View.VISIBLE);
         } else {
             gson = new Gson();
@@ -143,14 +142,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent myIntent = new Intent(MainActivity.this, LyricsCreateActivity.class);
             startActivity(myIntent);
         }
+
         else if (id == R.id.nav_edit) {
             Intent myIntent = new Intent(MainActivity.this, LyricsListActivity.class);
             startActivity(myIntent);
         }
         else if (id == R.id.nav_search) {
+            Intent myIntent = new Intent(MainActivity.this, LyricsListActivity.class);
+            startActivity(myIntent);
 
         }
         else if (id == R.id.nav_delete) {
+            Intent myIntent = new Intent(MainActivity.this, DeleteActivity.class);
+            startActivity(myIntent);
 
         }
 

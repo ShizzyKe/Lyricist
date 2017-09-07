@@ -32,12 +32,7 @@ public class LyricsCreateActivity extends AppCompatActivity {
     int position;
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.main,menu);
-        return true;
-    }
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

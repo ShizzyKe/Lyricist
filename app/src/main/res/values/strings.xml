@@ -6,4 +6,5 @@
 
     <string name="action_settings">Settings</string>
     <string name="hint">search</string>
+    <string name="searching">Search</string>
 </resources>
