@@ -17,7 +17,7 @@
         android:id="@+id/text2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Begin your lyrical journey.CLick on the plus sign below."
+        android:text="Begin your lyrical journey.Click on the plus sign below."
         android:visibility="gone"
         android:textAlignment="center"
         android:gravity="center_vertical"/>

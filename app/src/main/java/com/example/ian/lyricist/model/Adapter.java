@@ -1,26 +1,40 @@
 package com.example.ian.lyricist.model;
 
+
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
+import android.view.MenuInflater;
 import android.view.View;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.example.ian.lyricist.LyricsCreateActivity;
 import com.example.ian.lyricist.R;
+import com.example.ian.lyricist.model.Adapter;
+import com.example.ian.lyricist.model.Lyric;
+import com.example.ian.lyricist.model.PrefUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.ian.lyricist.R.attr.title;
-import static com.example.ian.lyricist.R.id.description;
+import java.util.zip.Inflater;
 
 /**
  * Created by Ian on 9/4/2017.

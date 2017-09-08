@@ -176,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onQueryTextChange(String newText) {
+        adapter = new Adapter(this);
         newText = newText.toLowerCase();
         List<Lyric> newlist = new ArrayList<>();
         for (Lyric lyric : lyrics)
